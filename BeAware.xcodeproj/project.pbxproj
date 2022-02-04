@@ -11,6 +11,8 @@
 		1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */; };
 		1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */; };
 		1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */; };
+		7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190A27AC8883009AB2E2 /* Extensions.swift */; };
+		7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190C27AD6636009AB2E2 /* IntroductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7698190A27AC8883009AB2E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7698190C27AD6636009AB2E2 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */,
 				1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */,
 				1F1DD5F227AB0EBA008FD66F /* Preview Content */,
+				7698190A27AC8883009AB2E2 /* Extensions.swift */,
+				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */,
+				7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */,
+				7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */,
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
