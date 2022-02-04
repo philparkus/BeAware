@@ -13,6 +13,8 @@
 		1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */; };
 		7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190A27AC8883009AB2E2 /* Extensions.swift */; };
 		7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190C27AD6636009AB2E2 /* IntroductionView.swift */; };
+		7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190E27ADA49D009AB2E2 /* SplashView.swift */; };
+		7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698191027ADAF88009AB2E2 /* MyTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7698190A27AC8883009AB2E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7698190C27AD6636009AB2E2 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		7698190E27ADA49D009AB2E2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		7698191027ADAF88009AB2E2 /* MyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				1F1DD5F227AB0EBA008FD66F /* Preview Content */,
 				7698190A27AC8883009AB2E2 /* Extensions.swift */,
 				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
+				7698190E27ADA49D009AB2E2 /* SplashView.swift */,
+				7698191027ADAF88009AB2E2 /* MyTabView.swift */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -145,7 +151,9 @@
 			files = (
 				1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */,
 				7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */,
+				7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */,
 				7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */,
+				7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */,
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
