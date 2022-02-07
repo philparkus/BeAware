@@ -4,8 +4,10 @@
 //
 //  Created by Saamer Mansoor on 2/3/22.
 //
-
+import AVFoundation
 import SwiftUI
+import Speech
+
 extension Color {
     init(hex: Int, opacity: Double = 1.0) {
         let red = Double((hex & 0xff0000) >> 16) / 255.0
@@ -28,5 +30,25 @@ extension View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
         return self
+    }
+}
+
+extension SFSpeechRecognizer {
+    static func hasAuthorizationToRecognize() async -> Bool {
+        await withCheckedContinuation { continuation in
+            requestAuthorization { status in
+                continuation.resume(returning: status == .authorized)
+            }
+        }
+    }
+}
+
+extension AVAudioSession {
+    func hasPermissionToRecord() async -> Bool {
+        await withCheckedContinuation { continuation in
+            requestRecordPermission { authorized in
+                continuation.resume(returning: authorized)
+            }
+        }
     }
 }
