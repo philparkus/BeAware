@@ -10,19 +10,19 @@ import SwiftUI
 struct MyTabView: View {
     var body: some View {
         TabView {
-            ContentView()
+            SpeechView()
                 .tabItem {
                     Label("Speech", systemImage: "mic")
                 }
-            ContentView ()
+            AlertView ()
                 .tabItem {
                     Label("Alert", systemImage: "waveform")
                 }
-            ContentView()
+            EmojiBoardView()
                 .tabItem {
                     Label("Emoji Board", systemImage: "checkerboard.rectangle")
                 }
-            ContentView ()
+            TextView ()
                 .tabItem {
                     Label("Text", systemImage: "keyboard")
                 }

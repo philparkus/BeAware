@@ -15,6 +15,12 @@
 		7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190C27AD6636009AB2E2 /* IntroductionView.swift */; };
 		7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190E27ADA49D009AB2E2 /* SplashView.swift */; };
 		7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698191027ADAF88009AB2E2 /* MyTabView.swift */; };
+		76CE03E727B08202001FF3E9 /* NoiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03E627B08202001FF3E9 /* NoiseView.swift */; };
+		76CE03E927B0F30E001FF3E9 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03E827B0F30E001FF3E9 /* SpeechView.swift */; };
+		76CE03EB27B0F3F2001FF3E9 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03EA27B0F3F2001FF3E9 /* AlertView.swift */; };
+		76CE03ED27B0F416001FF3E9 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03EC27B0F416001FF3E9 /* TextView.swift */; };
+		76CE03EF27B0F43D001FF3E9 /* EmojiBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */; };
+		76CE03F127B0F732001FF3E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03F027B0F732001FF3E9 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,10 +29,17 @@
 		1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		76019E5227B052C200042B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7698190A27AC8883009AB2E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7698190C27AD6636009AB2E2 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		7698190E27ADA49D009AB2E2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7698191027ADAF88009AB2E2 /* MyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabView.swift; sourceTree = "<group>"; };
+		76CE03E627B08202001FF3E9 /* NoiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiseView.swift; sourceTree = "<group>"; };
+		76CE03E827B0F30E001FF3E9 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
+		76CE03EA27B0F3F2001FF3E9 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		76CE03EC27B0F416001FF3E9 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBoardView.swift; sourceTree = "<group>"; };
+		76CE03F027B0F732001FF3E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +72,7 @@
 		1F1DD5EB27AB0EB9008FD66F /* BeAware */ = {
 			isa = PBXGroup;
 			children = (
+				76019E5227B052C200042B51 /* Info.plist */,
 				1F1DD5EC27AB0EB9008FD66F /* BeAwareApp.swift */,
 				1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */,
 				1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */,
@@ -67,6 +81,12 @@
 				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
 				7698190E27ADA49D009AB2E2 /* SplashView.swift */,
 				7698191027ADAF88009AB2E2 /* MyTabView.swift */,
+				76CE03E627B08202001FF3E9 /* NoiseView.swift */,
+				76CE03E827B0F30E001FF3E9 /* SpeechView.swift */,
+				76CE03EA27B0F3F2001FF3E9 /* AlertView.swift */,
+				76CE03EC27B0F416001FF3E9 /* TextView.swift */,
+				76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */,
+				76CE03F027B0F732001FF3E9 /* SettingsView.swift */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -151,10 +171,16 @@
 			files = (
 				1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */,
 				7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */,
+				76CE03EB27B0F3F2001FF3E9 /* AlertView.swift in Sources */,
 				7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */,
 				7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */,
 				7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */,
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
+				76CE03E927B0F30E001FF3E9 /* SpeechView.swift in Sources */,
+				76CE03EF27B0F43D001FF3E9 /* EmojiBoardView.swift in Sources */,
+				76CE03F127B0F732001FF3E9 /* SettingsView.swift in Sources */,
+				76CE03E727B08202001FF3E9 /* NoiseView.swift in Sources */,
+				76CE03ED27B0F416001FF3E9 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +313,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeAware/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeAware/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your microphone will be used to record your speech when you press the \"Start Recording\" button.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition will be used to determine which words you speak into the device's microphone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,11 +345,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeAware/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeAware/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your microphone will be used to record your speech when you press the \"Start Recording\" button.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition will be used to determine which words you speak into the device's microphone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
