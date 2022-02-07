@@ -27,7 +27,6 @@ extension View {
         // Set appearance for both normal and large sizes.
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
-    
         return self
     }
 }
