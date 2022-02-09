@@ -7,11 +7,26 @@
 import SwiftUI
 
 struct EmojiBoardView : View {
+    
+    let data = ["A","B","C"]
+
+        let columns = [
+            GridItem(.adaptive(minimum: 80))
+        ]
     var body : some View {
+        
         NavigationView{
+            ZStack{
+                Color("BrandColor")
+            
             VStack {
-                Spacer ()
-                Text("Emoji Board")
+            
+                LazyVGrid(columns: columns, spacing: 20) {
+                                    ForEach(data, id: \.self) { item in
+                                        Text(item)
+                                    }
+                                }
+                                .padding(.horizontal)
                 Spacer ()
             }.navigationTitle("Emoji Board").navigationBarTitleTextColor(Color("BrandColor"))
                 .toolbar{
@@ -25,6 +40,7 @@ struct EmojiBoardView : View {
                         
                     }
                 }
+            }
         }
     }
 }
