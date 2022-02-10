@@ -64,7 +64,7 @@ struct TextView : View {
                                             print("Right on!")
                                             for (index,value) in data.enumerated(){
                                                 if value == item{
-                                                    data.remove(at: index-1)
+                                                    data.remove(at: index)
                                                     // TODO: Fix "Fatal error: Index out of range" when similar values
                                             }
                                         }
