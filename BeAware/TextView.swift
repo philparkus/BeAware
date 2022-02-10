@@ -17,18 +17,18 @@ struct TextView : View {
                 Color(hex: 0x015697)
                 
                 VStack(alignment: .leading) {
+                    Text("Tap below to start typing:")
+                        .font(Font.custom("Avenir", size: 24))
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color(hex: 0xB2CCDE))
+
                     TextEditor(
                         text: $writtenText
                     )
                         .frame(height: 300)
                         .font(.custom("Avenir", size: 16))
                         .cornerRadius(10)
-                        .foregroundColor(self.writtenText == placeholderString ? .gray : Color("BrandColor"))
-                        .onTapGesture {
-                            if self.writtenText == placeholderString {
-                                self.writtenText = ""
-                            }
-                        }
+                        .foregroundColor(Color("BrandColor"))
                     Text("Preset phrases:")
                         .font(Font.custom("Avenir", size: 24))
                         .fontWeight(.heavy)
@@ -39,9 +39,8 @@ struct TextView : View {
                             .foregroundColor(Color(hex: 0xB2CCDE))
                             .lineLimit(1)
                             .onTapGesture(count: 1) {
-//                                    print("Single tapped!")
-                                writtenText += "I would like to see the manager, to request a special accommodation"
-                                }
+                                writtenText += " I would like to see the manager, to request a special accommodation"
+                            }
                     }
                     HStack{
                         TextField("Type here...", text: $newPreset )
@@ -51,14 +50,12 @@ struct TextView : View {
                                 print("Hi")
                             }
                         ){
-                            Text("ADD")
-                                .fontWeight(.semibold)
-                                .font(Font.custom("Avenir", size: 17))
-                            .foregroundColor(Color(hex: 0x015697))
-                            .frame(width: 80, height: 45)
-                            .padding()
-                        }.cornerRadius(10)                            .background(Color(hex: 0xB2CCDE))
-
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10).frame(width: 80, height: 40).foregroundColor(Color(hex: 0xB2CCDE))
+                                Text("ADD").foregroundColor(Color("BrandColor"))
+                                    .font(.custom("Avenir", size: 17))
+                            }
+                        }
                     }
                     Spacer()
                 }
