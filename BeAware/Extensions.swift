@@ -27,28 +27,9 @@ extension View {
         let uiColor = UIColor(color)
     
         // Set appearance for both normal and large sizes.
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor, .font:UIFont(name: "Avenir-Black", size: 24)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor, .font:UIFont(name: "Avenir-Black", size: 30)! ]
+        
         return self
-    }
-}
-
-extension SFSpeechRecognizer {
-    static func hasAuthorizationToRecognize() async -> Bool {
-        await withCheckedContinuation { continuation in
-            requestAuthorization { status in
-                continuation.resume(returning: status == .authorized)
-            }
-        }
-    }
-}
-
-extension AVAudioSession {
-    func hasPermissionToRecord() async -> Bool {
-        await withCheckedContinuation { continuation in
-            requestRecordPermission { authorized in
-                continuation.resume(returning: authorized)
-            }
-        }
     }
 }
