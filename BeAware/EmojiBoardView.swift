@@ -8,8 +8,10 @@ import SwiftUI
 
 struct EmojiBoardView : View {
     
-    let data = ["A","B","C"]
+    let data = ["😀","🦷","🧳","🍎","🍔","🍜","🍦","🏈","🏀","🚕","🚓","🚑","🛹","🚄","✈️","🚢","➕"]
 
+    
+    
         let columns = [
             GridItem(.adaptive(minimum: 80))
         ]
@@ -20,10 +22,15 @@ struct EmojiBoardView : View {
                 Color("BrandColor")
             
             VStack {
-            
-                LazyVGrid(columns: columns, spacing: 20) {
+                LazyVGrid(columns: columns, spacing: 50) {
                                     ForEach(data, id: \.self) { item in
+                                        ZStack{
+                                            Circle()
+                                                .foregroundColor(Color(hex: 0xb2ccde))
+                                                .frame(width:55, height:50)
+                                            
                                         Text(item)
+                                        }
                                     }
                                 }
                                 .padding(.horizontal)
