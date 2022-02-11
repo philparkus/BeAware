@@ -20,7 +20,8 @@ struct EmojiBoardView : View {
         NavigationView{
             ZStack{
                 Color("BrandColor")
-           
+             
+                
             VStack {
                 LazyVGrid(columns: columns, spacing: 50) {
                                     ForEach(data, id: \.self) { item in
