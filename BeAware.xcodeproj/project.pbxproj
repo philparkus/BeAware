@@ -12,6 +12,9 @@
 		1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */; };
 		1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */; };
 		760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760262FB27B47277003E52C1 /* Launch Screen.storyboard */; };
+		767F74CA27B6351B009E757C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74C927B6351B009E757C /* SpeechRecognizer.swift */; };
+		767F74CC27B635F9009E757C /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */; };
+		767F74CE27B63868009E757C /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 767F74CD27B63868009E757C /* ding.wav */; };
 		7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190A27AC8883009AB2E2 /* Extensions.swift */; };
 		7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190C27AD6636009AB2E2 /* IntroductionView.swift */; };
 		7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190E27ADA49D009AB2E2 /* SplashView.swift */; };
@@ -32,6 +35,9 @@
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76019E5227B052C200042B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		760262FB27B47277003E52C1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		767F74C927B6351B009E757C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
+		767F74CD27B63868009E757C /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		7698190A27AC8883009AB2E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7698190C27AD6636009AB2E2 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		7698190E27ADA49D009AB2E2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 				76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */,
 				76CE03F027B0F732001FF3E9 /* SettingsView.swift */,
 				760262FB27B47277003E52C1 /* Launch Screen.storyboard */,
+				767F74C927B6351B009E757C /* SpeechRecognizer.swift */,
+				767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */,
+				767F74CD27B63868009E757C /* ding.wav */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 			files = (
 				760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */,
 				1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */,
+				767F74CE27B63868009E757C /* ding.wav in Resources */,
 				1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +192,9 @@
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
 				76CE03E927B0F30E001FF3E9 /* SpeechView.swift in Sources */,
 				76CE03EF27B0F43D001FF3E9 /* EmojiBoardView.swift in Sources */,
+				767F74CC27B635F9009E757C /* AVPlayer+Ding.swift in Sources */,
 				76CE03F127B0F732001FF3E9 /* SettingsView.swift in Sources */,
+				767F74CA27B6351B009E757C /* SpeechRecognizer.swift in Sources */,
 				76CE03E727B08202001FF3E9 /* NoiseView.swift in Sources */,
 				76CE03ED27B0F416001FF3E9 /* TextView.swift in Sources */,
 			);
@@ -347,6 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BeAware/Preview Content\"";
+				DEVELOPMENT_TEAM = RB9MZ6N697;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeAware/Info.plist;

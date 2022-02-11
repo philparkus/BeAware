@@ -82,6 +82,7 @@ struct TextView : View {
                             action: {
                                 print("Hi")
                                 data.append(newPreset)
+                                newPreset=""
                             }
                         ){
                             ZStack{
@@ -95,7 +96,7 @@ struct TextView : View {
                 }}
                 .padding([.top, .leading, .trailing])
                 .textFieldStyle(.roundedBorder)
-                .navigationTitle("Text").navigationBarTitleTextColor(Color("BrandColor"))
+                .navigationTitle("Text").navigationBarTitleDisplayMode(.inline).font(.custom("Avenir", size:17)).navigationBarTitleTextColor(Color("BrandColor"))
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing){
                         NavigationLink(
