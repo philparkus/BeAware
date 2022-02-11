@@ -36,14 +36,14 @@ struct SpeechView : View {
                         {
                             isRecording.toggle()
                             if isRecording{
-                                simpleEnd()
+                                simpleEndHaptic()
                                 player.seek(to: .zero)
                                 player.play()
                                 speechRecognizer.reset()
                                 speechRecognizer.transcribe()
                             }
                             else{
-                                simpleSuccess()
+                                simpleSuccessHaptic()
                                 speechRecognizer.stopTranscribing()
                                 print(speechRecognizer.transcript)
                                 writtenText = speechRecognizer.transcript
