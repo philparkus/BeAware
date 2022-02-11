@@ -36,12 +36,14 @@ struct SpeechView : View {
                         {
                             isRecording.toggle()
                             if isRecording{
+                                simpleEnd()
                                 player.seek(to: .zero)
                                 player.play()
                                 speechRecognizer.reset()
                                 speechRecognizer.transcribe()
                             }
                             else{
+                                simpleSuccess()
                                 speechRecognizer.stopTranscribing()
                                 print(speechRecognizer.transcript)
                                 writtenText = speechRecognizer.transcript
@@ -95,4 +97,19 @@ struct SpeechView_Previews : PreviewProvider {
     static var previews: some View {
         SpeechView()
     }
+}
+
+func simpleSuccessHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.success)
+}
+
+func simpleEndHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.warning)
+}
+
+func simpleBigHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.error)
 }
