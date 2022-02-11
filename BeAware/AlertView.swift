@@ -9,6 +9,7 @@ import SwiftUI
 struct AlertView : View {
     @State private var noiseLength: Double = 10
     @State private var noiseThreshold: Double = 10
+    @State private var isRecording = false
     var body : some View {
         NavigationView{
             ZStack {
@@ -61,14 +62,42 @@ struct AlertView : View {
                             
                         }
                         Spacer(minLength: 60)
-                        Button {
-                            //                    This button should stop alerts
-                            print("Image tapped!")
-                        } label: {
-                            Image(systemName: "record.circle.fill")
-                                .resizable()
-                                .foregroundColor(Color(hex:0xB2CCDE))
-                                .frame(width: 75.0, height: 75.0)
+//                        Button(action: {
+//                            Task
+//                            {
+//                            }
+//                            Text("Stop Noise Alert")
+//                                .font(Font.custom("Avenir", size: 24))
+//                                .fontWeight(.heavy)
+//                                .foregroundColor(Color(hex: 0xB2CCDE))
+//                        }
+//                    .padding([.top, .leading, .trailing])
+//                                }
+//                        {
+                            if !isRecording{
+                                ZStack{
+//                                    Image(systemName: "mic.circle").resizable().scaledToFit()
+//                                        .frame(width: 50, height: 50)
+//                                        .foregroundColor(Color(hex: 0xB2CCDE ))
+                                    
+                                    Image(systemName: "record.circle.fill").resizable().scaledToFit()
+                                        .frame(width: 132, height: 132)
+                                        .foregroundColor(Color(hex: 0xB2CCDE))
+                                        .onTapGesture {
+                                            isRecording.toggle()
+                                        }
+                                    
+                                }
+                            }
+                            else
+                            {
+                                Image(systemName: "stop.circle").resizable().scaledToFit()
+                                    .frame(width: 132, height: 132)
+                                    .foregroundColor(Color(hex: 0xB2CCDE))
+                                    .onTapGesture {
+                                        isRecording.toggle()
+                                    }
+                            }
                         }
                         Text("Stop Noise Alert")
                             .font(Font.custom("Avenir", size: 24))
@@ -91,7 +120,6 @@ struct AlertView : View {
                 }
             }
         }
-    }
 }
 struct AlertView_Previews : PreviewProvider {
     static var previews: some View {
