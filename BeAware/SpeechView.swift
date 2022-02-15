@@ -7,16 +7,12 @@
 import AVFoundation
 import SwiftUI
 import Speech
-private let audioEngine = AVAudioEngine()
-private let speechRecognizer = SFSpeechRecognizer()
-private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-private var recognitionTask: SFSpeechRecognitionTask?
+//private let speechRecognizer = SFSpeechRecognizer()
 
 struct SpeechView : View {
-    @StateObject var speechRecognizer = SpeechRecognizer()
+    @StateObject var speechRecognizer = SpeechRecognizer() // StateObject and not Observed object because there's only one source of truth, so you'll only have one source of truth for the whole app
     @State private var isRecording = false
     private var player: AVPlayer { AVPlayer.sharedDingPlayer }
-    @State private var writtenText: String = ""
 
     var body : some View {
         NavigationView{
@@ -36,18 +32,16 @@ struct SpeechView : View {
                         {
                             isRecording.toggle()
                             if isRecording{
-                                simpleEnd()
+                                simpleEndHaptic()
                                 player.seek(to: .zero)
                                 player.play()
                                 speechRecognizer.reset()
                                 speechRecognizer.transcribe()
                             }
                             else{
-                                simpleSuccess()
+                                simpleSuccessHaptic()
                                 speechRecognizer.stopTranscribing()
                                 print(speechRecognizer.transcript)
-                                writtenText = speechRecognizer.transcript
-                                
                             }
                         }})
                     {
@@ -61,17 +55,19 @@ struct SpeechView : View {
                                     .frame(width: 132, height: 132)
                                     .foregroundColor(Color(hex: 0xB2CCDE))
                                 
-                            }
+                            }.shadow(color: .black, radius: 5, x: 0, y: 4)
+
                         }
                         else
                         {
-                            Image(systemName: "stop.circle").resizable().scaledToFit()
+                            Image(systemName: "stop.circle.fill").resizable().scaledToFit()
                                 .frame(width: 132, height: 132)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
                         }
                     }
                     TextEditor(
-                        text: $writtenText
+                        text: $speechRecognizer.transcript
                     )
                         .font(.custom("Avenir", size: 16))
                         .cornerRadius(10)
@@ -92,6 +88,13 @@ struct SpeechView : View {
             }
         }// clsoing bracket for navigation view
     } //closing bracket for vard body some view
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            print("Available")
+        } else {
+            print("Available")
+        }
+    }
 }
 struct SpeechView_Previews : PreviewProvider {
     static var previews: some View {
