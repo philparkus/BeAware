@@ -19,14 +19,17 @@ struct SpeechView : View {
             
             ZStack {
                 Color("BrandColor")
-                
                 VStack{
-                    Text("I can’t hear you clearly.  I use this tool to understand what people are saying. Please speak into the mic")
-                        .font(Font.custom("Avenir", size: 24))
-                        .padding(.top, 30)
-                        .padding([.leading, .trailing], 40.0)
-                        .foregroundColor(Color (hex: 0xB2CCDE))
-                    
+                    VStack{
+                        Text("I can’t hear you clearly.  I use this tool to understand what people are saying. Please speak into the mic")
+                            .font(Font.custom("Avenir", size: 24))
+                            .padding(.top, 20)
+                            .padding([.leading, .trailing], 30.0)
+                            .foregroundColor(Color (hex: 0xB2CCDE))
+                            .frame(maxHeight: .infinity)
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+
                     Button(action: {
                         Task
                         {
@@ -50,10 +53,12 @@ struct SpeechView : View {
                                 Image(systemName: "mic.circle").resizable().scaledToFit()
                                     .frame(width: 50, height: 50)
                                     .foregroundColor(Color(hex: 0xB2CCDE ))
+                                    .accessibilityHidden(true)
                                 
                                 Image(systemName: "record.circle.fill").resizable().scaledToFit()
                                     .frame(width: 132, height: 132)
                                     .foregroundColor(Color(hex: 0xB2CCDE))
+                                    .accessibilityLabel("Start Transcribing")
                                 
                             }.shadow(color: .black, radius: 5, x: 0, y: 4)
 
@@ -64,14 +69,15 @@ struct SpeechView : View {
                                 .frame(width: 132, height: 132)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                .accessibilityLabel("Stop Transcribing")
                         }
                     }
                     TextEditor(
                         text: $speechRecognizer.transcript
-                    )
+                    ).accessibilityHint("This field populates in real time when the voice is being recorded")
                         .font(.custom("Avenir", size: 16))
                         .cornerRadius(10)
-                        .padding(.init(top: 12, leading: 25, bottom: 74, trailing: 25))
+                        .padding(.init(top: 12, leading: 25, bottom: 10, trailing: 25))
                 }
             }
             .navigationTitle("Speech").navigationBarTitleDisplayMode(.inline)
@@ -87,7 +93,9 @@ struct SpeechView : View {
                 }
             }
         }// clsoing bracket for navigation view
-    } //closing bracket for vard body some view
+        .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
+    }
+ //closing bracket for vard body some view
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             print("Available")

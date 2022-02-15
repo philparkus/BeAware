@@ -11,8 +11,9 @@ let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 var audioRecorder: AVAudioRecorder?
 
 struct AlertView : View {
-    @State private var noiseLength: Double = 10
-    @State private var noiseThreshold: Double = 10
+    @State private var noiseLengthCounter: Double = 0
+    @State private var noiseLength: Double = 2
+    @State private var noiseThreshold: Double = 20
     @State private var isRecording = false
     var body : some View {
         NavigationView{
@@ -26,7 +27,7 @@ struct AlertView : View {
                             .fontWeight(.heavy)
                             .foregroundColor(Color(hex: 0xB2CCDE))
                             .padding([.top], 20.0)
-                        Slider(value: $noiseLength, in: 0...10)
+                        Slider(value: $noiseLength, in: 1...10)
                             .padding([.top, .leading, .trailing], 30.0)
                         
                         HStack {
@@ -47,17 +48,17 @@ struct AlertView : View {
                             .font(Font.custom("Avenir", size: 24))
                             .fontWeight(.heavy)
                             .foregroundColor(Color(hex: 0xB2CCDE))
-                        Slider(value: $noiseThreshold, in: 0...10)
+                        Slider(value: $noiseThreshold, in: 0...30)
                             .padding([.top, .leading, .trailing], 30.0)
                         
                         HStack {
-                            Text("Short")
+                            Text("Low")
                                 .font(Font.custom("Avenir", size: 20))
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .padding(.leading)
                             Spacer()
-                            Text("Long")
+                            Text("High")
                                 .font(Font.custom("Avenir", size: 20))
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
@@ -71,6 +72,7 @@ struct AlertView : View {
                                 .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .frame(width: 132, height: 132)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
+                                .accessibilityLabel("Start Noise Alert")
                                 .onTapGesture {
                                     isRecording ? stopRecording() : startRecording()
                                     print(isRecording)
@@ -84,6 +86,7 @@ struct AlertView : View {
                                 .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .frame(width: 132, height: 132)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
+                                .accessibilityLabel("Stop Noise Alert")
                                 .onTapGesture {
                                     isRecording ? stopRecording() : startRecording()
                                     print(isRecording)
@@ -96,6 +99,7 @@ struct AlertView : View {
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .padding([.bottom], 20.0)
+                                .accessibilityHidden(true)
                         }
                         else{
                             Text("Start Noise Alert")
@@ -103,6 +107,7 @@ struct AlertView : View {
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .padding([.bottom], 20.0)
+                                .accessibilityHidden(true)
                         }
                     }
                 }}
@@ -131,17 +136,24 @@ struct AlertView : View {
     
     func checkNoiseLevel()
     {
+        if noiseLengthCounter < noiseLength{
+            noiseLengthCounter = noiseLengthCounter + 1
+            return
+        }
+        else{
+            noiseLengthCounter = 0
+        }
         audioRecorder?.updateMeters()
         // NOTE: seems to be the approx correction to get real decibels
         let correction: Float = 80
         let average = (audioRecorder?.averagePower(forChannel: 0) ?? 0) + correction
         let peak = (audioRecorder?.peakPower(forChannel: 0) ?? 0) + correction
         print(peak)
-        if (peak > 80)
+        if (peak > Float(60 + noiseThreshold))
         {
             let content = UNMutableNotificationContent()
             content.title = "Noise alert notification"
-            content.body = "The noise is loud at " + String(describing: peak)
+            content.body = "The noise is loud at " + String(describing: Int(peak.rounded())) + "dB"
             // Configure the recurring date.
             var dateComponents = DateComponents()
             

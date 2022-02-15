@@ -49,12 +49,17 @@ struct TextView : View {
                                     .font(Font.custom("Avenir", size: 17))
                                     .foregroundColor(Color(hex: 0xB2CCDE))
                                     .lineLimit(1)
+                                    .accessibilityAddTraits(.isButton)
+                                    .accessibilityHint("Tap to add preset phrase to the text editor above")
                                     .onTapGesture(count: 1) {
                                         writtenText += " \(item)"
                                         complexSuccess()
                                     }
                                 Spacer()
                                 Image(systemName: "trash")
+                                    .accessibilityLabel("Delete")
+                                    .accessibilityHint("Removes the preset phrase")
+                                    .accessibilityAddTraits(.isButton)
                                     .foregroundColor(Color(hex: 0xB2CCDE))
                                     .onTapGesture(count: 1) {
                                         print("Right on!")
@@ -62,6 +67,7 @@ struct TextView : View {
                                         for (index,value) in data.enumerated(){
                                             if value == item{
                                                 data.remove(at: index)
+                                                return
                                                 // TODO: Fix "Fatal error: Index out of range" when similar values
                                             }
                                         }
@@ -74,6 +80,7 @@ struct TextView : View {
                         HStack{
                             TextField("Type here...", text: $newPreset )
                                 .frame(height: 50.0)
+                                .accessibilityLabel("Input a preset phrase you would like to add")
                                 .font(.custom("Avenir", size: 17))
                             Button(
                                 action: {
@@ -87,6 +94,8 @@ struct TextView : View {
                                     RoundedRectangle(cornerRadius: 10).frame(width: 80, height: 40).foregroundColor(Color(hex: 0xB2CCDE)).shadow(color: .black, radius: 5, x: 0, y: 4)
                                     Text("ADD").foregroundColor(Color("BrandColor"))
                                         .font(.custom("Avenir", size: 17))
+                                        .accessibilityLabel("Add")
+                                        .accessibilityHint("Adds the phrase you input to a list of preset phrases")
                                 }
                             }
                         }
