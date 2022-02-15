@@ -10,7 +10,7 @@ struct SettingsView : View {
     var body : some View {
         VStack {
             Spacer ()
-            Text("Settings")
+            Text("Settings page is in progress")
             Spacer ()
         }.navigationTitle("Settings").navigationBarTitleTextColor(Color("BrandColor"))        
     }

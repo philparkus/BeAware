@@ -25,6 +25,7 @@ struct AlertView : View {
                             .font(Font.custom("Avenir", size: 24))
                             .fontWeight(.heavy)
                             .foregroundColor(Color(hex: 0xB2CCDE))
+                            .padding([.top], 20.0)
                         Slider(value: $noiseLength, in: 0...10)
                             .padding([.top, .leading, .trailing], 30.0)
                         
@@ -41,7 +42,7 @@ struct AlertView : View {
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .padding(.trailing)
                         }
-                        Spacer(minLength: 30)
+                        Spacer(minLength: 20)
                         Text("Noise Threshold")
                             .font(Font.custom("Avenir", size: 24))
                             .fontWeight(.heavy)
@@ -63,75 +64,119 @@ struct AlertView : View {
                                 .padding(.trailing)
                             
                         }
-                        Spacer(minLength: 60)
-
-                            if !isRecording{
-                                ZStack{
-
-                                    
-                                    Image(systemName: "record.circle.fill").resizable().scaledToFit()
-                                        .frame(width: 132, height: 132)
-                                        .foregroundColor(Color(hex: 0xB2CCDE))
-                                        .onTapGesture {
-                                            isRecording ? stopRecording() : startRecording()
-                                            print(isRecording)
-                                            isRecording.toggle()
-                                        }
-                                    
+                        Spacer(minLength: 40)
+                        if !isRecording{
+                            Image(systemName: "record.circle.fill")
+                                .resizable().scaledToFit()
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                .frame(width: 132, height: 132)
+                                .foregroundColor(Color(hex: 0xB2CCDE))
+                                .onTapGesture {
+                                    isRecording ? stopRecording() : startRecording()
+                                    print(isRecording)
+                                    isRecording.toggle()
                                 }
-                            }
-                            else
-                            {
-                                Image(systemName: "stop.circle").resizable().scaledToFit()
-                                    .frame(width: 132, height: 132)
-                                    .foregroundColor(Color(hex: 0xB2CCDE))
-                                    .onTapGesture {
-                                        isRecording ? stopRecording() : startRecording()
-                                        print(isRecording)
-                                        isRecording.toggle()
-                                    }
-                            }
                         }
-                    if isRecording{
-                        Text("Stop Noise Alert")
-                            .font(Font.custom("Avenir", size: 24))
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color(hex: 0xB2CCDE))
-                        
-                    }
-                    else{
-                        Text("Start Noise Alert")
-                            .font(Font.custom("Avenir", size: 24))
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color(hex: 0xB2CCDE))
-                    }
-                    }}
-                .padding([.top, .leading, .trailing])
-                .navigationTitle("Alert").navigationBarTitleTextColor(Color("BrandColor")).toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing){
-                        NavigationLink(
-                            destination: SettingsView()
-                        ) {
-                            Image(systemName: "gear")
-                                .foregroundColor(.blue)
+                        else
+                        {
+                            Image(systemName: "stop.circle")
+                                .resizable().scaledToFit()
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
+                                .frame(width: 132, height: 132)
+                                .foregroundColor(Color(hex: 0xB2CCDE))
+                                .onTapGesture {
+                                    isRecording ? stopRecording() : startRecording()
+                                    print(isRecording)
+                                    isRecording.toggle()
+                                }
                         }
-                        
+                        if isRecording{
+                            Text("Stop Noise Alert")
+                                .font(Font.custom("Avenir", size: 24))
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color(hex: 0xB2CCDE))
+                                .padding([.bottom], 20.0)
+                        }
+                        else{
+                            Text("Start Noise Alert")
+                                .font(Font.custom("Avenir", size: 24))
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color(hex: 0xB2CCDE))
+                                .padding([.bottom], 20.0)
+                        }
                     }
+                }}
+            .navigationTitle("Alert")
+            .navigationBarTitleTextColor(Color("BrandColor"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    NavigationLink(
+                        destination: SettingsView()
+                    ) {
+                        Image(systemName: "gear")
+                            .foregroundColor(.blue)
+                    }
+                    
                 }
             }
+        }
         .onReceive(timer) { input in
             print("Raven was here")
-                    if isRecording{
-                        checkNoiseLevel()
-                    }
-                }
+            if isRecording{
+                checkNoiseLevel()
+            }
         }
+    }
+    
+    func checkNoiseLevel()
+    {
+        audioRecorder?.updateMeters()
+        // NOTE: seems to be the approx correction to get real decibels
+        let correction: Float = 80
+        let average = (audioRecorder?.averagePower(forChannel: 0) ?? 0) + correction
+        let peak = (audioRecorder?.peakPower(forChannel: 0) ?? 0) + correction
+        print(peak)
+        if (peak > 80)
+        {
+            let content = UNMutableNotificationContent()
+            content.title = "Noise alert notification"
+            content.body = "The noise is loud at " + String(describing: peak)
+            // Configure the recurring date.
+            var dateComponents = DateComponents()
+            
+            let date = Date()
+            let calendar = Calendar.current
+            dateComponents.calendar = calendar
+            dateComponents.hour = calendar.component(.hour, from: date)
+            dateComponents.minute = calendar.component(.minute, from: date)
+            dateComponents.second = calendar.component(.second, from: date) + 1
+            
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: dateComponents, repeats: false)
+            
+            let uuidString = UUID().uuidString
+            let request = UNNotificationRequest(identifier: uuidString,
+                                                content: content, trigger: trigger)
+            
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            
+            notificationCenter.add(request) { (error) in
+                if error != nil {
+                    // Handle any errors.
+                }
+            }
+        }
+    }
 }
 struct AlertView_Previews : PreviewProvider {
     static var previews: some View {
         AlertView()
     }
 }
+
 func startRecording()
 {
     let userNotificationCenter = UNUserNotificationCenter.current()
@@ -152,7 +197,7 @@ func startRecording()
         AVNumberOfChannelsKey : NSNumber(value: 1 as Int32),
         AVEncoderAudioQualityKey : NSNumber(value: Int32(AVAudioQuality.medium.rawValue) as Int32),
     ]
-
+    
     let audioSession = AVAudioSession.sharedInstance()
     
     do {
@@ -164,47 +209,6 @@ func startRecording()
         audioRecorder?.isMeteringEnabled = true
     } catch let err {
         print("Unable start recording", err)
-    }
-}
-
-func checkNoiseLevel(){
-    audioRecorder?.updateMeters()
-     // NOTE: seems to be the approx correction to get real decibels
-    let correction: Float = 80
-    let average = (audioRecorder?.averagePower(forChannel: 0) ?? 0) + correction
-    let peak = (audioRecorder?.peakPower(forChannel: 0) ?? 0) + correction
-    print(peak)
-    if (peak > 80)
-    {
-        let content = UNMutableNotificationContent()
-        content.title = "Noise alert notification"
-        content.body = "The noise is loud at " + String(describing: peak)
-        // Configure the recurring date.
-        var dateComponents = DateComponents()
-
-        let date = Date()
-        let calendar = Calendar.current
-        dateComponents.calendar = calendar
-        dateComponents.hour = calendar.component(.hour, from: date)
-        dateComponents.minute = calendar.component(.minute, from: date)
-        dateComponents.second = calendar.component(.second, from: date) + 1
-        
-        // Create the trigger as a repeating event.
-        let trigger = UNCalendarNotificationTrigger(
-                 dateMatching: dateComponents, repeats: false)
-
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString,
-                    content: content, trigger: trigger)
-
-        // Schedule the request with the system.
-        let notificationCenter = UNUserNotificationCenter.current()
-
-        notificationCenter.add(request) { (error) in
-           if error != nil {
-              // Handle any errors.
-           }
-        }
     }
 }
 

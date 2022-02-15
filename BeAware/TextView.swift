@@ -108,6 +108,8 @@ struct TextView : View {
             }
         }
         .onAppear(perform: prepareHaptics)
+        .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
+
     }
     // Taken from here https://www.hackingwithswift.com/books/ios-swiftui/making-vibrations-with-uinotificationfeedbackgenerator-and-core-haptics
 

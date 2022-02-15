@@ -28,7 +28,7 @@ class SpeechRecognizer: ObservableObject {
         }
     }
     
-    var transcript: String = ""
+    @Published var transcript: String = ""
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -80,7 +80,34 @@ class SpeechRecognizer: ObservableObject {
                 let (audioEngine, request) = try Self.prepareEngine()
                 self.audioEngine = audioEngine
                 self.request = request
-                self.task = recognizer.recognitionTask(with: request, resultHandler: self.recognitionHandler(result:error:))
+                // Create a recognition task for the speech recognition session.
+                // Keep a reference to the task so that it can be canceled.
+                self.task = recognizer.recognitionTask(with: request) { result, error in
+                    var isFinal = false
+                    
+                    if let result = result {
+                        // Update the text view with the results.
+//                        self.textView.text = result.bestTranscription.formattedString
+                        isFinal = result.isFinal
+//                        print(result.debugDescription.formatted(.))
+                        self.transcript = result.bestTranscription.formattedString
+                        print("Text \(result.bestTranscription.formattedString)")
+                    }
+                    
+                    if error != nil || isFinal {
+                        // Stop recognizing speech if there is a problem.
+//                        self.audioEngine.stop()
+//                        inputNode.removeTap(onBus: 0)
+//
+//                        self.recognitionRequest = nil
+//                        self.recognitionTask = nil
+//
+//                        self.recordButton.isEnabled = true
+//                        self.recordButton.setTitle("Start Recording", for: [])
+                    }
+                }
+
+//                self.task = recognizer.recognitionTask(with: request, resultHandler: self.recognitionHandler(result:error:))
             } catch {
                 self.reset()
                 self.speakError(error)
@@ -108,11 +135,13 @@ class SpeechRecognizer: ObservableObject {
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
         
+        // Configure the audio session for the app.
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
         
+        // Configure the microphone input.
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             request.append(buffer)
