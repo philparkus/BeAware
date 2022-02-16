@@ -24,6 +24,8 @@
 		76CE03ED27B0F416001FF3E9 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03EC27B0F416001FF3E9 /* TextView.swift */; };
 		76CE03EF27B0F43D001FF3E9 /* EmojiBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */; };
 		76CE03F127B0F732001FF3E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CE03F027B0F732001FF3E9 /* SettingsView.swift */; };
+		76F348B927BC719600BABBAD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F348B827BC719600BABBAD /* ImagePicker.swift */; };
+		76F348BB27BC7E1D00BABBAD /* AddedImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F348BA27BC7E1D00BABBAD /* AddedImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		76CE03EC27B0F416001FF3E9 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiBoardView.swift; sourceTree = "<group>"; };
 		76CE03F027B0F732001FF3E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		76F348B827BC719600BABBAD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		76F348BA27BC7E1D00BABBAD /* AddedImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,24 +82,19 @@
 		1F1DD5EB27AB0EB9008FD66F /* BeAware */ = {
 			isa = PBXGroup;
 			children = (
+				76F348BC27BC7E2600BABBAD /* Views */,
 				76019E5227B052C200042B51 /* Info.plist */,
 				1F1DD5EC27AB0EB9008FD66F /* BeAwareApp.swift */,
 				1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */,
 				1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */,
 				1F1DD5F227AB0EBA008FD66F /* Preview Content */,
 				7698190A27AC8883009AB2E2 /* Extensions.swift */,
-				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
-				7698190E27ADA49D009AB2E2 /* SplashView.swift */,
-				7698191027ADAF88009AB2E2 /* MyTabView.swift */,
-				76CE03E827B0F30E001FF3E9 /* SpeechView.swift */,
-				76CE03EA27B0F3F2001FF3E9 /* AlertView.swift */,
-				76CE03EC27B0F416001FF3E9 /* TextView.swift */,
-				76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */,
-				76CE03F027B0F732001FF3E9 /* SettingsView.swift */,
 				760262FB27B47277003E52C1 /* Launch Screen.storyboard */,
 				767F74C927B6351B009E757C /* SpeechRecognizer.swift */,
 				767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */,
 				767F74CD27B63868009E757C /* ding.wav */,
+				76F348B827BC719600BABBAD /* ImagePicker.swift */,
+				76F348BA27BC7E1D00BABBAD /* AddedImages.swift */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -106,6 +105,21 @@
 				1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		76F348BC27BC7E2600BABBAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
+				7698190E27ADA49D009AB2E2 /* SplashView.swift */,
+				7698191027ADAF88009AB2E2 /* MyTabView.swift */,
+				76CE03E827B0F30E001FF3E9 /* SpeechView.swift */,
+				76CE03EA27B0F3F2001FF3E9 /* AlertView.swift */,
+				76CE03EC27B0F416001FF3E9 /* TextView.swift */,
+				76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */,
+				76CE03F027B0F732001FF3E9 /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +197,10 @@
 				1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */,
 				7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */,
 				76CE03EB27B0F3F2001FF3E9 /* AlertView.swift in Sources */,
+				76F348B927BC719600BABBAD /* ImagePicker.swift in Sources */,
 				7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */,
 				7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */,
+				76F348BB27BC7E1D00BABBAD /* AddedImages.swift in Sources */,
 				7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */,
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
 				76CE03E927B0F30E001FF3E9 /* SpeechView.swift in Sources */,
@@ -321,14 +337,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"BeAware/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeAware/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BeAware. Communicate Better";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses your camera to display your picture in the emoji board";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your microphone will be used to record your speech when you press the \"Start Recording\" button.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition will be used to determine which words you speak into the device's microphone.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses your gallery to display selected ones in the emoji board";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Use the speech feature to convert voice to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -355,15 +373,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"BeAware/Preview Content\"";
 				DEVELOPMENT_TEAM = RB9MZ6N697;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeAware/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "BeAware. Communicate Better";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses your camera to display your picture in the emoji board";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your microphone will be used to record your speech when you press the \"Start Recording\" button.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Speech recognition will be used to determine which words you speak into the device's microphone.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app uses your gallery to display selected ones in the emoji board";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Use the speech feature to convert voice to text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
