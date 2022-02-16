@@ -7,6 +7,7 @@
 import AVFoundation
 import SwiftUI
 import Speech
+import WidgetKit
 //private let speechRecognizer = SFSpeechRecognizer()
 
 struct SpeechView : View {
@@ -36,13 +37,23 @@ struct SpeechView : View {
                             isRecording.toggle()
                             if isRecording{
                                 simpleEndHaptic()
+                                if let userDefaults = UserDefaults(suiteName: "group.com.tfp.beaware") {
+                                    userDefaults.setValue("transcribing", forKey: "state")
+                                }
+                                WidgetCenter.shared.reloadAllTimelines()
+
                                 player.seek(to: .zero)
                                 player.play()
                                 speechRecognizer.reset()
                                 speechRecognizer.transcribe()
                             }
                             else{
-                                simpleSuccessHaptic()
+                                simpleBigHaptic()
+                                if let userDefaults = UserDefaults(suiteName: "group.com.tfp.beaware") {
+                                    userDefaults.setValue("stopped", forKey: "state")
+                                }
+                                WidgetCenter.shared.reloadAllTimelines()
+
                                 speechRecognizer.stopTranscribing()
                                 print(speechRecognizer.transcript)
                             }

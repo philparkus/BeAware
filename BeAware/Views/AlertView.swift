@@ -7,6 +7,8 @@
 import SwiftUI
 import UserNotifications
 import AVFoundation
+import WidgetKit
+
 let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 var audioRecorder: AVAudioRecorder?
 
@@ -74,6 +76,12 @@ struct AlertView : View {
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .accessibilityLabel("Start Noise Alert")
                                 .onTapGesture {
+                                    simpleBigHaptic()
+                                    if let userDefaults = UserDefaults(suiteName: "group.com.tfp.beaware") {
+                                        userDefaults.setValue("noise alert", forKey: "state")
+                                    }
+                                    WidgetCenter.shared.reloadAllTimelines()
+
                                     isRecording ? stopRecording() : startRecording()
                                     print(isRecording)
                                     isRecording.toggle()
@@ -81,13 +89,19 @@ struct AlertView : View {
                         }
                         else
                         {
-                            Image(systemName: "stop.circle")
+                            Image(systemName: "stop.circle.fill")
                                 .resizable().scaledToFit()
                                 .shadow(color: .black, radius: 5, x: 0, y: 4)
                                 .frame(width: 132, height: 132)
                                 .foregroundColor(Color(hex: 0xB2CCDE))
                                 .accessibilityLabel("Stop Noise Alert")
                                 .onTapGesture {
+                                    simpleEndHaptic()
+                                    if let userDefaults = UserDefaults(suiteName: "group.com.tfp.beaware") {
+                                        userDefaults.setValue("stopped", forKey: "state")
+                                    }
+                                    WidgetCenter.shared.reloadAllTimelines()
+
                                     isRecording ? stopRecording() : startRecording()
                                     print(isRecording)
                                     isRecording.toggle()

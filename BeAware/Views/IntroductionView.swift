@@ -49,7 +49,7 @@ struct IntroductionView: View {
                         Spacer()
                         Button(
                             action: {
-                                print("Hi")
+                                simpleSuccessHaptic()
                                 self.isActive = true
                             }
                         ){
@@ -61,9 +61,10 @@ struct IntroductionView: View {
                                     .foregroundColor(Color(hex: 0x015697))
                                     .background(Color(hex: 0xB2CCDE))
 
-                        }   .cornerRadius(8)
+                        }.padding(.top, 20.00)   .cornerRadius(8)
                         Spacer()
                     }
+                    .padding(.top, 30.0)
                 }
             }
         }
