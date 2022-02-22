@@ -11,6 +11,9 @@
 		1F1DD5EF27AB0EB9008FD66F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */; };
 		1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */; };
 		1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */; };
+		1FEB47DE27C40BCA0060F29A /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB47DD27C40BCA0060F29A /* TutorialView.swift */; };
+		1FEB47E027C433E40060F29A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB47DF27C433E40060F29A /* VideoView.swift */; };
+		1FEB47E227C56B950060F29A /* BeAware-tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */; };
 		760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760262FB27B47277003E52C1 /* Launch Screen.storyboard */; };
 		767F74CA27B6351B009E757C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74C927B6351B009E757C /* SpeechRecognizer.swift */; };
 		767F74CC27B635F9009E757C /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */; };
@@ -34,7 +37,10 @@
 		1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		76019E5227B052C200042B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1FEB47DD27C40BCA0060F29A /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		1FEB47DF27C433E40060F29A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "BeAware-tutorial.mov"; path = "../../../Downloads/BeAware-tutorial.mov"; sourceTree = "<group>"; };
+		76019E5227B052C200042B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		760262FB27B47277003E52C1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		767F74C927B6351B009E757C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
@@ -83,9 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				76F348BC27BC7E2600BABBAD /* Views */,
-				76019E5227B052C200042B51 /* Info.plist */,
 				1F1DD5EC27AB0EB9008FD66F /* BeAwareApp.swift */,
 				1F1DD5EE27AB0EB9008FD66F /* ContentView.swift */,
+				76019E5227B052C200042B51 /* Info.plist */,
 				1F1DD5F027AB0EBA008FD66F /* Assets.xcassets */,
 				1F1DD5F227AB0EBA008FD66F /* Preview Content */,
 				7698190A27AC8883009AB2E2 /* Extensions.swift */,
@@ -95,6 +101,7 @@
 				767F74CD27B63868009E757C /* ding.wav */,
 				76F348B827BC719600BABBAD /* ImagePicker.swift */,
 				76F348BA27BC7E1D00BABBAD /* AddedImages.swift */,
+				1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				7698190C27AD6636009AB2E2 /* IntroductionView.swift */,
+				1FEB47DD27C40BCA0060F29A /* TutorialView.swift */,
 				7698190E27ADA49D009AB2E2 /* SplashView.swift */,
 				7698191027ADAF88009AB2E2 /* MyTabView.swift */,
 				76CE03E827B0F30E001FF3E9 /* SpeechView.swift */,
@@ -118,6 +126,7 @@
 				76CE03EC27B0F416001FF3E9 /* TextView.swift */,
 				76CE03EE27B0F43D001FF3E9 /* EmojiBoardView.swift */,
 				76CE03F027B0F732001FF3E9 /* SettingsView.swift */,
+				1FEB47DF27C433E40060F29A /* VideoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 				760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */,
 				1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */,
 				767F74CE27B63868009E757C /* ding.wav in Resources */,
+				1FEB47E227C56B950060F29A /* BeAware-tutorial.mov in Resources */,
 				1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,11 +209,13 @@
 				76CE03EB27B0F3F2001FF3E9 /* AlertView.swift in Sources */,
 				76F348B927BC719600BABBAD /* ImagePicker.swift in Sources */,
 				7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */,
+				1FEB47E027C433E40060F29A /* VideoView.swift in Sources */,
 				7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */,
 				76F348BB27BC7E1D00BABBAD /* AddedImages.swift in Sources */,
 				7698191127ADAF88009AB2E2 /* MyTabView.swift in Sources */,
 				1F1DD5ED27AB0EB9008FD66F /* BeAwareApp.swift in Sources */,
 				76CE03E927B0F30E001FF3E9 /* SpeechView.swift in Sources */,
+				1FEB47DE27C40BCA0060F29A /* TutorialView.swift in Sources */,
 				76CE03EF27B0F43D001FF3E9 /* EmojiBoardView.swift in Sources */,
 				767F74CC27B635F9009E757C /* AVPlayer+Ding.swift in Sources */,
 				76CE03F127B0F732001FF3E9 /* SettingsView.swift in Sources */,

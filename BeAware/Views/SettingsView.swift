@@ -54,7 +54,7 @@ struct SettingsView : View {
              .padding(.trailing, 20)
              }
             HStack {
-             NavigationLink(destination: IntroductionView()) {
+             NavigationLink(destination: TutorialView()) {
              Text("Tutorial")
              .font(Font.custom("Avenir", size: 24))
              .foregroundColor(Color (hex: 0xB2CCDE))
@@ -66,6 +66,22 @@ struct SettingsView : View {
              .padding(.trailing, 20)
              }
              }
+            
+            HStack {
+             NavigationLink(destination: VideoView()) {
+             Text("Video")
+             .font(Font.custom("Avenir", size: 24))
+             .foregroundColor(Color (hex: 0xB2CCDE))
+             .padding(.leading, 20)
+             Spacer()
+             Image(systemName: "chevron.right").padding(.trailing, 30)
+             .font(Font.custom("Avenir", size: 24))
+             .foregroundColor(Color (hex: 0xB2CCDE))
+             .padding(.trailing, 20)
+             }
+             }
+            
+            
             Spacer ()
         }
         }.navigationTitle("Settings").navigationBarTitleTextColor(Color("BrandColor"))
