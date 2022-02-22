@@ -31,7 +31,7 @@ struct VideoView_Previews: PreviewProvider {
 //guard let url = Bundle.main.url(forResource: "ding", withExtension: "wav") else { fatalError("Failed to find sound file.") }
 
 func geturl() ->URL?{
-    guard let url = Bundle.main.url(forResource: "BeAware-tutorial", withExtension: "mov") else { fatalError("Failed to find movie file.") }
+    guard let url = Bundle.main.url(forResource: "BeAware-tutorial", withExtension: "mp4") else { fatalError("Failed to find movie file.") }
     let audioSession = AVAudioSession.sharedInstance()
     do {
     try audioSession.setCategory(.playback)

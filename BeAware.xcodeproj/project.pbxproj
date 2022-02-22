@@ -13,11 +13,11 @@
 		1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */; };
 		1FEB47DE27C40BCA0060F29A /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB47DD27C40BCA0060F29A /* TutorialView.swift */; };
 		1FEB47E027C433E40060F29A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB47DF27C433E40060F29A /* VideoView.swift */; };
-		1FEB47E227C56B950060F29A /* BeAware-tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */; };
 		760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760262FB27B47277003E52C1 /* Launch Screen.storyboard */; };
 		767F74CA27B6351B009E757C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74C927B6351B009E757C /* SpeechRecognizer.swift */; };
 		767F74CC27B635F9009E757C /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */; };
 		767F74CE27B63868009E757C /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 767F74CD27B63868009E757C /* ding.wav */; };
+		769462E927C573E4006A660D /* BeAware-tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 769462E827C573E4006A660D /* BeAware-tutorial.mp4 */; };
 		7698190B27AC8883009AB2E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190A27AC8883009AB2E2 /* Extensions.swift */; };
 		7698190D27AD6636009AB2E2 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190C27AD6636009AB2E2 /* IntroductionView.swift */; };
 		7698190F27ADA49D009AB2E2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698190E27ADA49D009AB2E2 /* SplashView.swift */; };
@@ -39,12 +39,12 @@
 		1F1DD5F327AB0EBA008FD66F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FEB47DD27C40BCA0060F29A /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		1FEB47DF27C433E40060F29A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
-		1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "BeAware-tutorial.mov"; path = "../../../Downloads/BeAware-tutorial.mov"; sourceTree = "<group>"; };
 		76019E5227B052C200042B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		760262FB27B47277003E52C1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		767F74C927B6351B009E757C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		767F74CB27B635F9009E757C /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
 		767F74CD27B63868009E757C /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
+		769462E827C573E4006A660D /* BeAware-tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeAware-tutorial.mp4"; sourceTree = "<group>"; };
 		7698190A27AC8883009AB2E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7698190C27AD6636009AB2E2 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		7698190E27ADA49D009AB2E2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 				767F74CD27B63868009E757C /* ding.wav */,
 				76F348B827BC719600BABBAD /* ImagePicker.swift */,
 				76F348BA27BC7E1D00BABBAD /* AddedImages.swift */,
-				1FEB47E127C56B950060F29A /* BeAware-tutorial.mov */,
+				769462E827C573E4006A660D /* BeAware-tutorial.mp4 */,
 			);
 			path = BeAware;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 				760262FC27B47277003E52C1 /* Launch Screen.storyboard in Resources */,
 				1F1DD5F427AB0EBA008FD66F /* Preview Assets.xcassets in Resources */,
 				767F74CE27B63868009E757C /* ding.wav in Resources */,
-				1FEB47E227C56B950060F29A /* BeAware-tutorial.mov in Resources */,
+				769462E927C573E4006A660D /* BeAware-tutorial.mp4 in Resources */,
 				1F1DD5F127AB0EBA008FD66F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
