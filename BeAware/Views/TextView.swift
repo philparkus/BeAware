@@ -12,13 +12,11 @@ struct TextView : View {
     @State private var writtenText: String = ""
     @State private var newPreset: String = ""
     var placeholderString = "Tap here to start typing"
-    @State private var data:[String] = ["I would like to see the manager, to request a special accommodation!",
+   
+        @AppStorage("items") var data:[String] = ["I would like to see the manager, to request a special accommodation!",
                                         "Why was I pulled over?",
                                         "I'm deaf/Hard of Hearing"]
-    
-    let rows = [
-        GridItem(.adaptive(minimum: 80))
-    ]
+
     var body : some View {
         NavigationView{
             ZStack{
