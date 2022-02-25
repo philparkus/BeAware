@@ -10,6 +10,8 @@ import AVFoundation
 let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 var audioRecorder: AVAudioRecorder?
 
+//let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+
 struct AlertView : View {
     @State private var noiseLengthCounter: Double = 0
     @State private var noiseLength: Double = 2
@@ -151,9 +153,30 @@ struct AlertView : View {
         print(peak)
         if (peak > Float(60 + noiseThreshold))
         {
+            
+            toggleTorch(on: true)
+            
+            
             let content = UNMutableNotificationContent()
             content.title = "Noise alert notification"
             content.body = "The noise is loud at " + String(describing: Int(peak.rounded())) + "dB"
+            content.sound = .defaultCritical
+//
+//            if (device.hasTorch) {
+//                do {
+//                    try device.lockForConfiguration()
+//                    if (device.torchMode == AVCaptureTorchMode.On) {
+//                        device.torchMode = AVCaptureTorchMode.Off
+//                    } else {
+//                        try device.setTorchModeOnWithLevel(1.0)
+//                    }
+//                    device.unlockForConfiguration()
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//
+            
             // Configure the recurring date.
             var dateComponents = DateComponents()
             
@@ -181,6 +204,9 @@ struct AlertView : View {
                 }
             }
         }
+        else{
+            toggleTorch(on: false)
+        }
     }
 }
 struct AlertView_Previews : PreviewProvider {
@@ -192,7 +218,7 @@ struct AlertView_Previews : PreviewProvider {
 func startRecording()
 {
     let userNotificationCenter = UNUserNotificationCenter.current()
-    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound, .criticalAlert)
     userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
         if let error = error {
             print("Error: ", error)
@@ -236,3 +262,29 @@ func directoryURL() -> URL? {
     let soundURL = documentDirectory.appendingPathComponent("sound.m4a")
     return soundURL
 }
+
+
+func toggleTorch(on: Bool) {
+    guard let device = AVCaptureDevice.default(for: .video) else { return }
+
+    if device.hasTorch {
+        do {
+            try device.lockForConfiguration()
+
+            if on == true {
+                device.torchMode = .on
+                try device.setTorchModeOn(level: 1.0)
+            } else {
+                device.torchMode = .off
+            }
+
+            device.unlockForConfiguration()
+        } catch {
+            print("Torch could not be used")
+        }
+    } else {
+        print("Torch is not available")
+    }
+}
+
+//AVCaptureDevice.maxAvailableTorchLevel.significand)

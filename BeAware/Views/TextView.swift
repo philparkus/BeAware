@@ -8,6 +8,7 @@ import SwiftUI
 import CoreHaptics
 
 struct TextView : View {
+    @State private var rotation = 0.0
     @State private var engine: CHHapticEngine?
     @State private var writtenText: String = ""
     @State private var newPreset: String = ""
@@ -23,10 +24,28 @@ struct TextView : View {
                 Color(hex: 0x015697)
                 ScrollView{
                     VStack(alignment: .leading) {
-                        Text("Tap below to start typing:")
-                            .font(Font.custom("Avenir", size: 17))
-                            .foregroundColor(Color(hex: 0xB2CCDE))
-                        
+                        HStack{
+                            Text("Tap below to start typing:")
+                                .font(Font.custom("Avenir", size: 17))
+                                .foregroundColor(Color(hex: 0xB2CCDE))
+                            Spacer()
+                            Button(
+                                action: {
+                                    if rotation == 0{
+                                        rotation = 180
+                                    }
+                                    else {
+                                        rotation = 0
+                                    }
+                                }
+                            ){
+                                Image(systemName: "arrow.uturn.up.square.fill")
+                                    .accessibilityLabel("flip screen")
+                                    .accessibilityHint("Flips the screen for the other person to see what you typed")
+                                    .accessibilityAddTraits(.isButton)
+                                    .foregroundColor(Color(hex: 0xB2CCDE))
+                            }
+                        }
                         TextEditor(
                             text: $writtenText
                         )
@@ -35,6 +54,7 @@ struct TextView : View {
                             .font(.custom("Avenir", size: 16))
                             .cornerRadius(10)
                             .foregroundColor(Color("BrandColor"))
+                            .rotationEffect(.degrees(rotation))
                         Text("Preset phrases:")
                             .font(Font.custom("Avenir", size: 24))
                             .fontWeight(.heavy)
