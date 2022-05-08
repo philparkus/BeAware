@@ -6,7 +6,7 @@ Because of that, Angela's mom became more anxious for her deaf daughter’s well
 Ever since then she began to look for possible solutions, but they were all too expensive or unpopular to trust.
 
 We have over 600k deaf or head of hearing residents in Michigan now! Isn’t that unbelievable? 
-600k dead/hard of hearing people! That’s 1 person of for every 3 households in every city in every neighborhood, and also includes babies and their mothers.
+600k deaf/hard of hearing people! That’s 1 person of for every 3 households in every city in every neighborhood, and also includes babies and their mothers.
 
 Introducing BeAware, an assistant for the deaf and hard of hearing.
 
